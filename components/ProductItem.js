@@ -10,7 +10,7 @@ class ProductItem extends React.Component {
         <View style={styles.itemImgCon}>
           <ImageBackground
             style={styles.itemImg}
-            source={require('../assets/img/itemImg.png')}
+            source={require('../assets/img/item1.png')}
             resizeMode="cover"
           />
         </View>
