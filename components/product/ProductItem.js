@@ -1,7 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, Text, ImageBackground} from 'react-native';
-import {productStyle} from '../assets/styles/productStyle';
-import {HeaderStyle} from '../assets/styles/HeaderStyle';
+import {ProductStyle} from '../../assets/styles/ProductStyle';
 
 class ProductItem extends React.Component {
   render() {
@@ -10,7 +9,7 @@ class ProductItem extends React.Component {
         <View style={styles.itemImgCon}>
           <ImageBackground
             style={styles.itemImg}
-            source={require('../assets/img/item1.png')}
+            source={require('../../assets/img/item1.png')}
             resizeMode="cover"
           />
         </View>
@@ -37,8 +36,7 @@ class ProductItem extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  ...productStyle,
-  ...HeaderStyle,
+  ...ProductStyle,
 });
 
 export default ProductItem;

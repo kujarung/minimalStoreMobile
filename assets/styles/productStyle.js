@@ -1,4 +1,4 @@
-const productStyle = {
+const ProductStyle = {
   productBody: {
     backgroundColor: 'white',
     paddingLeft: 20,
@@ -26,7 +26,6 @@ const productStyle = {
   itemImg: {
     height: 400,
   },
-
   itemPrice: {
     position: 'absolute',
     bottom: 80,
@@ -51,6 +50,7 @@ const productStyle = {
     marginBottom: 10,
   },
   itemTitleTxt: {
+    marginTop: 10,
     fontSize: 20,
   },
   itemDescCon: {},
@@ -60,4 +60,4 @@ const productStyle = {
   },
 };
 
-export {productStyle};
+export {ProductStyle};

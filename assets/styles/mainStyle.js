@@ -1,4 +1,4 @@
-const mainStyle = {
+const MainStyle = {
   container: {
     flex: 1,
   },
@@ -27,9 +27,9 @@ const mainStyle = {
   },
   innerTxtBig: {
     fontWeight: 'bold',
-    fontSize: 40,
+    fontSize: 30,
     top: -50,
-    lineHeight: 50,
+    lineHeight: 40,
   },
   innerTxtSmall: {
     position: 'absolute',
@@ -56,6 +56,7 @@ const mainStyle = {
   bottomImg: {
     height: 60,
     width: 10,
+    left: 10,
   },
   bottomImgCon: {
     position: 'absolute',
@@ -65,4 +66,4 @@ const mainStyle = {
   },
 };
 
-export {mainStyle};
+export {MainStyle};

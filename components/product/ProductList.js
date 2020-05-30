@@ -3,15 +3,13 @@ import {
   StyleSheet,
   View,
   Text,
-  Image,
-  SafeAreaView,
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import {productStyle} from '../assets/styles/productStyle';
-import {HeaderStyle} from '../assets/styles/HeaderStyle';
+import {ProductStyle} from '../../assets/styles/ProductStyle';
 import ProductItem from './ProductItem';
 import axios from 'axios';
+import Header from '../layout/Header';
 
 class Product extends Component {
   constructor() {
@@ -25,35 +23,31 @@ class Product extends Component {
       method: 'get',
       url: 'http://localhost:3000/product',
     });
-    console.log(product.product);
     this.setState({
       itemData: product.product,
     });
   }
   render() {
     const itemList = this.state.itemData;
-    console.log(itemList);
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.header}>
-          <View style={styles.headerInner}>
-            <Text style={styles.logoTxt}>MinialStore</Text>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.openDrawer()}>
-              <Image
-                style={styles.menu}
-                source={require('../assets/img/menu.png')}
-              />
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
+        <Header navigation={this.props.navigation} />
         <ScrollView style={styles.productBody}>
           <View>
             <Text style={styles.itemMainTxt}>High Quality</Text>
           </View>
           <View style={styles.itemCon}>
             {itemList.map((val, i) => {
-              return <ProductItem val={val} key={i} />;
+              return (
+                <TouchableOpacity
+                  onPress={() =>
+                    this.props.navigation.push('ProductDetail', {
+                      id: val.PRODUCT_CODE,
+                    })
+                  }>
+                  <ProductItem val={val} key={i} />
+                </TouchableOpacity>
+              );
             })}
           </View>
         </ScrollView>
@@ -63,8 +57,7 @@ class Product extends Component {
 }
 
 const styles = StyleSheet.create({
-  ...productStyle,
-  ...HeaderStyle,
+  ...ProductStyle,
 });
 
 export default Product;
