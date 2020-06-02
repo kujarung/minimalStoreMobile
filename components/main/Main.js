@@ -13,10 +13,12 @@ const Main = ({navigation}) => {
           style={styles.innerBodyOne}
           source={require('../../assets/img/main-back.png')}
           resizeMode="cover">
-          <Text style={styles.bodyInnerTxt}>Item</Text>
-          <Text style={[styles.bodyInnerTxt, styles.impaTxt]}>Figure</Text>
-          <Text style={styles.bodyInnerTxt}>Interior Goods</Text>
-          <Text style={styles.bodyInnerTxt}>Books</Text>
+          <View>
+            <Text style={styles.bodyInnerTxt}>Item</Text>
+            <Text style={[styles.bodyInnerTxt, styles.impaTxt]}>Figure</Text>
+            <Text style={styles.bodyInnerTxt}>Interior Goods</Text>
+            <Text style={styles.bodyInnerTxt}>Books</Text>
+          </View>
         </ImageBackground>
 
         <View style={styles.innerBodyTwo}>

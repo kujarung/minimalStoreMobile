@@ -9,9 +9,9 @@ const MainStyle = {
     flex: 1,
   },
   innerBodyOne: {
-    paddingTop: 30,
     flex: 3,
     paddingLeft: 30,
+    justifyContent: 'center',
   },
   innerBodyTwo: {
     flex: 3,
@@ -28,7 +28,7 @@ const MainStyle = {
   innerTxtBig: {
     fontWeight: 'bold',
     fontSize: 30,
-    top: -50,
+    top: -40,
     lineHeight: 40,
   },
   innerTxtSmall: {
@@ -38,7 +38,7 @@ const MainStyle = {
     textAlign: 'left',
     paddingRight: 30,
     lineHeight: 30,
-    top: 150,
+    top: 80,
   },
   bodyInnerTxt: {
     fontSize: 30,
@@ -54,14 +54,14 @@ const MainStyle = {
     fontWeight: 'bold',
   },
   bottomImg: {
-    height: 60,
+    height: 45,
     width: 10,
     left: 10,
   },
   bottomImgCon: {
     position: 'absolute',
     flex: 1,
-    bottom: 50,
+    bottom: 30,
     left: '50%',
   },
 };
