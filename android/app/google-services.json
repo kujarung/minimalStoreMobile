@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "982129407887",
+    "firebase_url": "https://minimalstore-19af7.firebaseio.com",
+    "project_id": "minimalstore-19af7",
+    "storage_bucket": "minimalstore-19af7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982129407887:android:4957e6f715cd6487d53dfa",
+        "android_client_info": {
+          "package_name": "com.minimalstoremobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "982129407887-48jtffs60ba452r4n2g89d22ba6fh065.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH4bJDbAo5vI8_teXDifuqfVAFIXlP88c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "982129407887-48jtffs60ba452r4n2g89d22ba6fh065.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,42 +1,44 @@
 const ProductStyle = {
   productBody: {
     backgroundColor: 'white',
-    paddingLeft: 20,
-    paddingRight: 20,
     marginBottom: 100,
   },
   itemCon: {
     flex: 1,
+    alignItems: 'stretch',
     justifyContent: 'center',
   },
   item: {
-    borderWidth: 1,
-    borderColor: '#E0E0E0',
-    borderRadius: 20,
+    paddingLeft: 10,
+    paddingRight: 10,
     marginBottom: 50,
-  },
-  itemTxteCon: {
-    paddingLeft: 20,
-    paddingBottom: 20,
   },
   itemImgCon: {
     flex: 1,
     marginBottom: 10,
   },
   itemImg: {
-    height: 400,
+    height: 165,
+    borderRadius: 20,
+  },
+  starImg: {
+    width: 20,
+    height: 20,
+    position: 'absolute',
+    right: 5,
+    top: 5,
   },
   itemPrice: {
     position: 'absolute',
-    bottom: 80,
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
     textAlign: 'center',
-    paddingLeft: 20,
-    paddingRight: 20,
+    paddingLeft: 10,
+    paddingRight: 10,
     paddingTop: 10,
     paddingBottom: 10,
+    left: 0,
   },
-
   itemMainTxt: {
     fontSize: 30,
     marginBottom: 20,
@@ -45,6 +47,7 @@ const ProductStyle = {
   itemPriceTxt: {
     color: 'white',
     fontSize: 14,
+    fontWeight: 'bold',
   },
   itemTitleCon: {
     marginBottom: 10,
@@ -53,10 +56,46 @@ const ProductStyle = {
     marginTop: 10,
     fontSize: 20,
   },
-  itemDescCon: {},
+  itemDescCon: {
+    marginBottom: 10,
+  },
   itemDescTxt: {
     fontSize: 13,
-    color: '#999999',
+    color: '#666666',
+  },
+  itemBtnCon: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  bestBtn: {
+    marginRight: 5,
+    backgroundColor: '#000000',
+    paddingTop: 3,
+    paddingBottom: 3,
+    paddingRight: 8,
+    paddingLeft: 8,
+    borderRadius: 5,
+  },
+  freeBtn: {
+    marginRight: 5,
+    backgroundColor: '#FF5D39',
+    paddingTop: 3,
+    paddingBottom: 3,
+    paddingRight: 8,
+    paddingLeft: 8,
+    borderRadius: 5,
+  },
+  newBtn: {
+    marginRight: 5,
+    backgroundColor: '#FFC839',
+    paddingTop: 3,
+    paddingBottom: 3,
+    paddingRight: 8,
+    paddingLeft: 8,
+    borderRadius: 5,
+  },
+  btnTxt: {
+    color: 'white',
   },
 };
 
