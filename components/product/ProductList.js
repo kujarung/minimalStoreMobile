@@ -1,55 +1,55 @@
 import React, {Component} from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
+import {StyleSheet, View, ScrollView} from 'react-native';
 import {ProductStyle} from '../../assets/styles/ProductStyle';
-import ProductItem from './ProductItem';
-import axios from 'axios';
 import Header from '../layout/Header';
+import {TabView, TabBar} from 'react-native-tab-view';
+import ProductListItem from './ProductListItem';
 
+const renderScene = ({route}) => {
+  switch (route.key) {
+    case 'ALL':
+      return <ProductListItem nowTabl={'nowALLTabl'} />;
+    case 'BEST':
+      return <ProductListItem nowTabl={'nowALLTabl'} />;
+    case 'NEW':
+      return <ProductListItem nowTabl={'NEW'} />;
+  }
+};
+const renderTabBar = (props) => (
+  <TabBar
+    {...props}
+    indicatorStyle={{backgroundColor: '#F1B57C', height: 5}}
+    labelStyle={{color: 'black', fontWeight: 'bold'}}
+    style={{backgroundColor: 'transparnet', marginBottom: 30}}
+  />
+);
 class Product extends Component {
   constructor() {
     super();
     this.state = {
       itemData: [],
+      index: 0,
+      setIndex: 0,
+      routes: [
+        {key: 'ALL', title: 'ALL'},
+        {key: 'BEST', title: 'BEST'},
+        {key: 'NEW', title: 'NEW'},
+      ],
     };
   }
-  async componentDidMount() {
-    const {data: product} = await axios({
-      method: 'get',
-      url: 'http://localhost:3000/product',
-    });
-    this.setState({
-      itemData: product.product,
-    });
-  }
   render() {
-    const itemList = this.state.itemData;
+    const {index, routes} = this.state;
+    const _handleIndexChange = (index) => this.setState({index});
     return (
       <View style={styles.container}>
         <Header navigation={this.props.navigation} />
         <ScrollView style={styles.productBody}>
-          <View>
-            <Text style={styles.itemMainTxt}>High Quality</Text>
-          </View>
-          <View style={styles.itemCon}>
-            {itemList.map((val, i) => {
-              return (
-                <TouchableOpacity
-                  onPress={() =>
-                    this.props.navigation.push('ProductDetail', {
-                      id: val.PRODUCT_CODE,
-                    })
-                  }>
-                  <ProductItem val={val} key={i} />
-                </TouchableOpacity>
-              );
-            })}
-          </View>
+          <TabView
+            renderTabBar={renderTabBar}
+            navigationState={{index, routes}}
+            onIndexChange={_handleIndexChange}
+            renderScene={renderScene}
+          />
         </ScrollView>
       </View>
     );
