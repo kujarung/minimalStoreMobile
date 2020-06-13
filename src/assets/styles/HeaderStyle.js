@@ -19,6 +19,18 @@ const HeaderStyle = {
     paddingLeft: 20,
     paddingRight: 20,
   },
+  backBtn: {
+    width: 24,
+    height: 24,
+    marginRight: 8,
+  },
+  detalTxt: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  detailHeaderCon: {
+    flex: 1,
+  },
 };
 
 export {HeaderStyle};

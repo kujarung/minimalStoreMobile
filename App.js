@@ -6,17 +6,26 @@ import Main from 'views/main/Main';
 import ProductCon from 'views/product/ProductCon';
 import About from 'views/about/About';
 import CustomDrawerContent from 'components/layout/CustomDrwaer';
-const Drawer = createDrawerNavigator();
 import AsyncStorage from '@react-native-community/async-storage';
 import firebase from 'react-native-firebase';
-import {Alert, View} from 'react-native';
+import {
+  Alert,
+  View,
+  ActivityIndicator,
+  StyleSheet,
+  Platform,
+} from 'react-native';
+import {CommonStyle} from 'assets/styles/CommonStyle';
 
+const Drawer = createDrawerNavigator();
 export class App extends React.Component {
   async componentDidMount() {
-    //we check if user has granted permission to receive push notifications.
-    this.checkPermission();
-    // Register all listener for notification
-    this.createNotificationListeners();
+    if (Platform.OS !== 'ios') {
+      //we check if user has granted permission to receive push notifications.
+      this.checkPermission();
+      // Register all listener for notification
+      this.createNotificationListeners();
+    }
   }
 
   async checkPermission() {
@@ -92,6 +101,13 @@ export class App extends React.Component {
   render() {
     return (
       <NavigationContainer>
+        <View style={[styles.container, styles.horizontal]}>
+          <ActivityIndicator
+            style={styles.indicate}
+            size="large"
+            color="#E39696"
+          />
+        </View>
         <Drawer.Navigator
           initialRouteName="Main"
           drawerPosition="right"
@@ -104,5 +120,9 @@ export class App extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  ...CommonStyle,
+});
 
 export default App;

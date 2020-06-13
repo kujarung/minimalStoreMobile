@@ -24,7 +24,9 @@
     "react-native-reanimated": "^1.9.0",
     "react-native-safe-area-context": "^2.0.3",
     "react-native-screens": "^2.8.0",
+    "react-native-snap-carousel": "^3.9.1",
     "react-native-tab-view": "^2.14.2",
+    "react-native-zss-rich-text-editor": "^1.1.0",
     "react-navigation": "^4.3.9",
     "react-navigation-stack": "^2.5.1",
     "react-navigation-tabs": "^2.8.13"

@@ -25,7 +25,7 @@ class ProductDetail extends Component {
     const {item} = this.state;
     return (
       <View>
-        <Header navigation={this.props.navigation} />
+        <Header navigation={this.props.navigation} isDetail={'true'} />
         <Text>{item.product_desc}</Text>
       </View>
     );

@@ -36,28 +36,28 @@ class Product extends Component {
           return (
             <ProductListItem
               navigation={this.props.navigation}
-              nowTabl={'nowALLTabl'}
+              nowTabl={'All'}
             />
           );
         case 'BEST':
           return (
             <ProductListItem
               navigation={this.props.navigation}
-              nowTabl={'nowALLTabl'}
+              nowTabl={'Best'}
             />
           );
         case 'NEW':
           return (
             <ProductListItem
               navigation={this.props.navigation}
-              nowTabl={'NEW'}
+              nowTabl={'New'}
             />
           );
       }
     };
     return (
       <View style={styles.container}>
-        <Header navigation={this.props.navigation} isDetail={'true'} />
+        <Header navigation={this.props.navigation} />
         <ScrollView style={styles.productBody}>
           <TabView
             renderTabBar={renderTabBar}

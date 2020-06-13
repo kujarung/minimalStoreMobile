@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {Image, StyleSheet} from 'react-native';
+import {Image, StyleSheet, View, Text} from 'react-native';
 import {
   DrawerContentScrollView,
   DrawerItemList,
   DrawerItem,
 } from '@react-navigation/drawer';
+import {DrawerStyle} from 'assets/styles/DrawerStyle';
 
 export default class CustomDrwaer extends Component {
   render() {
@@ -12,22 +13,32 @@ export default class CustomDrwaer extends Component {
       <DrawerContentScrollView {...this.props}>
         <DrawerItem
           label={({}) => (
-            <Image
-              style={styles.drawerLogo}
-              source={require('assets/img/temp-menu.jpg')}
-            />
+            <View style={styles.draweImgCon}>
+              <Image
+                style={styles.drawerLogo}
+                source={require('assets/img/temp-menu.jpg')}
+              />
+              <View>
+                <Text style={styles.nameTxt}>김아무개</Text>
+                <Text>
+                  <Text style={styles.countCnt}>+ 26</Text>
+                  <Text> Days</Text>
+                </Text>
+              </View>
+            </View>
           )}
           onPress={() => this.props.navigation.navigate('Main')}
         />
-        <DrawerItemList {...this.props} />
+        <DrawerItemList
+          activeBackgroundColor={'#F3EDE6'}
+          activeTintColor={'black'}
+          {...this.props}
+        />
       </DrawerContentScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  drawerLogo: {
-    width: 80,
-    height: 80,
-  },
+  ...DrawerStyle,
 });

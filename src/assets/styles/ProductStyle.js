@@ -28,24 +28,12 @@ const ProductStyle = {
     right: 5,
     top: 5,
   },
-  itemPrice: {
-    position: 'absolute',
-    bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
-    textAlign: 'center',
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
-    left: 0,
-  },
   itemMainTxt: {
     fontSize: 30,
     marginBottom: 20,
     marginTop: 20,
   },
   itemPriceTxt: {
-    color: 'white',
     fontSize: 14,
     fontWeight: 'bold',
   },
@@ -56,6 +44,7 @@ const ProductStyle = {
     marginTop: 10,
     fontSize: 20,
     flexShrink: 1,
+    fontWeight: 'bold',
   },
   itemDescCon: {
     marginBottom: 10,
@@ -66,6 +55,9 @@ const ProductStyle = {
     flexShrink: 1,
   },
   itemBtnCon: {
+    position: 'absolute',
+    bottom: 10,
+    left: 6,
     flex: 1,
     flexDirection: 'row',
   },
@@ -97,6 +89,7 @@ const ProductStyle = {
     borderRadius: 5,
   },
   btnTxt: {
+    fontWeight: '600',
     color: 'white',
   },
 };

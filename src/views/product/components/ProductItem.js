@@ -3,27 +3,44 @@ import {StyleSheet, View, Text, ImageBackground, Image} from 'react-native';
 import {ProductStyle} from 'assets/styles/ProductStyle';
 import utils from 'utils';
 
+function // 3자리 콤마 (ex. 1000 => 1,000)
+numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
 class ProductItem extends React.Component {
   render() {
     const item = this.props.val;
-    const imagePath = item.ATTACH_IMGs[0].file_path;
-    const showImgPath = utils.path + imagePath;
+    let showImgPath;
+    if (item.ATTACH_IMGs) {
+      const imagePath = item.ATTACH_IMGs[0].file_path;
+      showImgPath = utils.path + imagePath;
+    } else {
+    }
     return (
       <View style={styles.item}>
         <View style={styles.itemImgCon}>
           <ImageBackground
             style={styles.itemImg}
             source={{uri: showImgPath}}
+            imageStyle={{borderRadius: 8}}
             resizeMode="cover">
-            <View>
-              <Image
-                style={styles.starImg}
-                source={require('assets/img/active-star.png')}
-              />
+            <View style={styles.itemBtnCon}>
+              {item.del_is_free == 'true' ? (
+                <View style={styles.freeBtn}>
+                  <Text style={styles.btnTxt}>무료배송</Text>
+                </View>
+              ) : (
+                <Text />
+              )}
+              <View style={styles.newBtn}>
+                <Text>New</Text>
+              </View>
             </View>
-            <View style={styles.itemPrice}>
-              <Text style={styles.itemPriceTxt}>{item.product_price} 원</Text>
-            </View>
+            <Image
+              style={styles.starImg}
+              source={require('assets/img/active-star.png')}
+            />
           </ImageBackground>
         </View>
 
@@ -41,20 +58,12 @@ class ProductItem extends React.Component {
               ellipsizeMode="tail"
               numberOfLines={3}
               style={styles.itemDescTxt}>
-              {item.product_desc}
+              {item.product_desc.replace(/(<([^>]+)>)/gi, '')}
             </Text>
           </View>
-          <View style={styles.itemBtnCon}>
-            <View style={styles.bestBtn}>
-              <Text style={styles.btnTxt}>Best</Text>
-            </View>
-            <View style={styles.freeBtn}>
-              <Text style={styles.btnTxt}>무료배송</Text>
-            </View>
-            <View style={styles.newBtn}>
-              <Text>New</Text>
-            </View>
-          </View>
+          <Text style={styles.itemPriceTxt}>
+            {numberWithCommas(item.product_price)} 원
+          </Text>
         </View>
       </View>
     );
