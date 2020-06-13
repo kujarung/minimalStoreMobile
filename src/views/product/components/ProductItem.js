@@ -1,39 +1,47 @@
 import React from 'react';
 import {StyleSheet, View, Text, ImageBackground, Image} from 'react-native';
-import {ProductStyle} from '../../assets/styles/ProductStyle';
+import {ProductStyle} from 'assets/styles/ProductStyle';
+import utils from 'utils';
 
 class ProductItem extends React.Component {
   render() {
+    const item = this.props.val;
+    const imagePath = item.ATTACH_IMGs[0].file_path;
+    const showImgPath = utils.path + imagePath;
     return (
       <View style={styles.item}>
         <View style={styles.itemImgCon}>
           <ImageBackground
             style={styles.itemImg}
-            source={require('../../assets/img/item1.png')}
+            source={{uri: showImgPath}}
             resizeMode="cover">
             <View>
               <Image
                 style={styles.starImg}
-                source={require('../../assets/img/active-star.png')}
+                source={require('assets/img/active-star.png')}
               />
             </View>
             <View style={styles.itemPrice}>
-              <Text style={styles.itemPriceTxt}>
-                {this.props.val.PRODUCT_PRICE} 원
-              </Text>
+              <Text style={styles.itemPriceTxt}>{item.product_price} 원</Text>
             </View>
           </ImageBackground>
         </View>
 
         <View style={styles.itemTxteCon}>
           <View style={styles.itemTitleCon}>
-            <Text style={styles.itemTitleTxt}>
-              {this.props.val.PRODUCT_NAME}
+            <Text
+              ellipsizeMode="tail"
+              numberOfLines={1}
+              style={styles.itemTitleTxt}>
+              {item.product_name}
             </Text>
           </View>
           <View style={styles.itemDescCon}>
-            <Text style={styles.itemDescTxt}>
-              {this.props.val.PRODUCT_DESC}
+            <Text
+              ellipsizeMode="tail"
+              numberOfLines={3}
+              style={styles.itemDescTxt}>
+              {item.product_desc}
             </Text>
           </View>
           <View style={styles.itemBtnCon}>

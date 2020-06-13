@@ -7,7 +7,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import {HeaderStyle} from '../../assets/styles/HeaderStyle';
+import {HeaderStyle} from 'assets/styles/HeaderStyle';
 
 class Header extends React.Component {
   render() {
@@ -22,7 +22,7 @@ class Header extends React.Component {
           <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
             <Image
               style={styles.menu}
-              source={require('../../assets/img/menu.png')}
+              source={require('assets/img/menu.png')}
             />
           </TouchableOpacity>
         </View>

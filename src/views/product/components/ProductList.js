@@ -1,20 +1,10 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, ScrollView} from 'react-native';
-import {ProductStyle} from '../../assets/styles/ProductStyle';
-import Header from '../layout/Header';
+import {ProductStyle} from 'assets/styles/ProductStyle';
+import Header from 'components/layout/Header';
 import {TabView, TabBar} from 'react-native-tab-view';
 import ProductListItem from './ProductListItem';
 
-const renderScene = ({route}) => {
-  switch (route.key) {
-    case 'ALL':
-      return <ProductListItem nowTabl={'nowALLTabl'} />;
-    case 'BEST':
-      return <ProductListItem nowTabl={'nowALLTabl'} />;
-    case 'NEW':
-      return <ProductListItem nowTabl={'NEW'} />;
-  }
-};
 const renderTabBar = (props) => (
   <TabBar
     {...props}
@@ -40,9 +30,34 @@ class Product extends Component {
   render() {
     const {index, routes} = this.state;
     const _handleIndexChange = (index) => this.setState({index});
+    const renderScene = ({route}) => {
+      switch (route.key) {
+        case 'ALL':
+          return (
+            <ProductListItem
+              navigation={this.props.navigation}
+              nowTabl={'nowALLTabl'}
+            />
+          );
+        case 'BEST':
+          return (
+            <ProductListItem
+              navigation={this.props.navigation}
+              nowTabl={'nowALLTabl'}
+            />
+          );
+        case 'NEW':
+          return (
+            <ProductListItem
+              navigation={this.props.navigation}
+              nowTabl={'NEW'}
+            />
+          );
+      }
+    };
     return (
       <View style={styles.container}>
-        <Header navigation={this.props.navigation} />
+        <Header navigation={this.props.navigation} isDetail={'true'} />
         <ScrollView style={styles.productBody}>
           <TabView
             renderTabBar={renderTabBar}

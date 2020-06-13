@@ -14,7 +14,7 @@ export default class CustomDrwaer extends Component {
           label={({}) => (
             <Image
               style={styles.drawerLogo}
-              source={require('../../assets/img/temp-menu.jpg')}
+              source={require('assets/img/temp-menu.jpg')}
             />
           )}
           onPress={() => this.props.navigation.navigate('Main')}

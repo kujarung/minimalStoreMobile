@@ -2,9 +2,10 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
-import Main from './components/main/Main';
-import ProductCon from './components/product/ProductCon';
-import CustomDrawerContent from './components/layout/CustomDrwaer';
+import Main from 'views/main/Main';
+import ProductCon from 'views/product/ProductCon';
+import About from 'views/about/About';
+import CustomDrawerContent from 'components/layout/CustomDrwaer';
 const Drawer = createDrawerNavigator();
 import AsyncStorage from '@react-native-community/async-storage';
 import firebase from 'react-native-firebase';
@@ -97,6 +98,7 @@ export class App extends React.Component {
           drawerContent={(props) => <CustomDrawerContent {...props} />}>
           <Drawer.Screen name="Main" component={Main} />
           <Drawer.Screen name="Product" component={ProductCon} />
+          <Drawer.Screen name="About" component={About} />
         </Drawer.Navigator>
       </NavigationContainer>
     );

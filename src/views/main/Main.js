@@ -1,8 +1,8 @@
 import React from 'react';
 import {ImageBackground, StyleSheet, View, Text, Image} from 'react-native';
-import {MainStyle} from '../../assets/styles/MainStyle';
-import {HeaderStyle} from '../../assets/styles/HeaderStyle';
-import Header from '../layout/Header';
+import {MainStyle} from 'assets/styles/MainStyle';
+import {HeaderStyle} from 'assets/styles/HeaderStyle';
+import Header from 'components/layout/Header';
 
 const Main = ({navigation}) => {
   return (
@@ -11,7 +11,7 @@ const Main = ({navigation}) => {
       <View style={styles.body}>
         <ImageBackground
           style={styles.innerBodyOne}
-          source={require('../../assets/img/main-back.png')}
+          source={require('assets/img/main-back.png')}
           resizeMode="cover">
           <View>
             <Text style={styles.bodyInnerTxt}>Item</Text>
@@ -34,7 +34,7 @@ const Main = ({navigation}) => {
           <View style={styles.bottomImgCon}>
             <Image
               style={styles.bottomImg}
-              source={require('../../assets/img/Group3.png')}
+              source={require('assets/img/Group3.png')}
             />
           </View>
         </View>

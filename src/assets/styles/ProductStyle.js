@@ -55,6 +55,7 @@ const ProductStyle = {
   itemTitleTxt: {
     marginTop: 10,
     fontSize: 20,
+    flexShrink: 1,
   },
   itemDescCon: {
     marginBottom: 10,
@@ -62,6 +63,7 @@ const ProductStyle = {
   itemDescTxt: {
     fontSize: 13,
     color: '#666666',
+    flexShrink: 1,
   },
   itemBtnCon: {
     flex: 1,
