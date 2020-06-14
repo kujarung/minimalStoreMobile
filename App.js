@@ -57,7 +57,6 @@ export class App extends React.Component {
       this.getToken();
     } catch (error) {
       // User has rejected permissions
-      console.log('permission rejected');
     }
   }
 
@@ -101,13 +100,6 @@ export class App extends React.Component {
   render() {
     return (
       <NavigationContainer>
-        <View style={[styles.container, styles.horizontal]}>
-          <ActivityIndicator
-            style={styles.indicate}
-            size="large"
-            color="#E39696"
-          />
-        </View>
         <Drawer.Navigator
           initialRouteName="Main"
           drawerPosition="right"

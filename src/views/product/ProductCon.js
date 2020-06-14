@@ -2,7 +2,6 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import ProductList from './components/ProductList';
 import ProductDetail from './ProductDetail';
-
 const Stack = createStackNavigator();
 
 class ProductCon extends React.Component {

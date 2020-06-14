@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, TouchableOpacity, FlatList, Text} from 'react-native';
+import {StyleSheet, View, TouchableOpacity, FlatList} from 'react-native';
 import {ProductStyle} from 'assets/styles/ProductStyle';
+import {CommonStyle} from 'assets/styles/CommonStyle';
 import ProductItem from './ProductItem';
 import axios from 'axios';
 
@@ -10,53 +11,49 @@ class ProductListItem extends Component {
     this.state = {
       itemData: [],
       currentPage: 1,
+      lastPage: 1,
     };
+    this.getDate = this.getDate.bind(this);
   }
   async getDate() {
-    let {currentPage} = this.state;
-    console.log(currentPage);
-    const {itemData} = this.state;
-    const {
-      data: {data},
-    } = await axios({
-      method: 'get',
-      url: 'http://localhost:8080/api/product',
-      params: {
-        currentPage,
-      },
-    });
-    itemData.push(...data);
-    this.setState({
-      currentPage: ++currentPage,
-      itemData: itemData,
-    });
+    let {currentPage, lastPage} = this.state;
+    if (lastPage <= currentPage) {
+      const {
+        data: {data, count},
+      } = await axios({
+        method: 'get',
+        url: 'http://localhost:8080/api/product',
+        params: {
+          currentPage,
+        },
+      });
+      this.setState({
+        currentPage: ++currentPage,
+        itemData: this.state.itemData.concat(data),
+        lastPage: count,
+      });
+    }
   }
   async componentDidMount() {
     console.log('did mo');
     await this.getDate();
   }
   render() {
-    let endReachCall;
     const {itemData} = this.state;
     const {nowTabl} = this.props;
     return (
       <View style={styles.itemCon}>
         <FlatList
+          keyExtractor={(item, index) => item.product_code}
           columnWrapperStyle={styles.listCon}
           numColumns={nowTabl === 'All' ? 2 : 1}
           data={itemData}
-          onEndReachedThreshold={0}
-          onEndReached={() => {
-            if (!endReachCall) {
-              endReachCall = setTimeout(async () => {
-                await this.getDate();
-                endReachCall = false;
-              }, 1000);
-            }
+          onEndReached={async () => {
+            console.log('end');
           }}
+          onEndReachedThreshold={1}
           renderItem={({item}) => (
             <TouchableOpacity
-              key={item.product_code}
               style={{flex: 1}}
               onPress={() =>
                 this.props.navigation.push('ProductDetail', {
@@ -75,6 +72,7 @@ class ProductListItem extends Component {
 
 const styles = StyleSheet.create({
   ...ProductStyle,
+  ...CommonStyle,
 });
 
 export default ProductListItem;

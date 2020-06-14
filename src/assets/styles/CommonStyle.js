@@ -1,6 +1,6 @@
 const CommonStyle = {
   container: {
-    zIndex: 20,
+    zIndex: 200,
     position: 'absolute',
     flex: 1,
     justifyContent: 'center',
@@ -14,8 +14,8 @@ const CommonStyle = {
     padding: 10,
   },
   indicate: {
-    zIndex: 30,
+    zIndex: 500,
   },
 };
 
-export default CommonStyle;
+export {CommonStyle};

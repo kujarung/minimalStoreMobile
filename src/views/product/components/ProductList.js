@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, ScrollView} from 'react-native';
+import {StyleSheet, View, ScrollView, ActivityIndicator} from 'react-native';
 import {ProductStyle} from 'assets/styles/ProductStyle';
 import Header from 'components/layout/Header';
 import {TabView, TabBar} from 'react-native-tab-view';
@@ -60,6 +60,7 @@ class Product extends Component {
         <Header navigation={this.props.navigation} />
         <ScrollView style={styles.productBody}>
           <TabView
+            lazy={true}
             renderTabBar={renderTabBar}
             navigationState={{index, routes}}
             onIndexChange={_handleIndexChange}
@@ -70,7 +71,6 @@ class Product extends Component {
     );
   }
 }
-
 const styles = StyleSheet.create({
   ...ProductStyle,
 });
