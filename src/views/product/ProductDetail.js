@@ -3,6 +3,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import axios from 'axios';
 import Header from 'components/layout/Header';
 import {WebView} from 'react-native-webview';
+import {ScrollView} from 'react-native-gesture-handler';
 
 class ProductDetail extends Component {
   constructor(props) {
@@ -25,15 +26,11 @@ class ProductDetail extends Component {
   }
   render() {
     const {item} = this.state;
-    console.log(item);
     return (
       <View>
         <Header navigation={this.props.navigation} isDetail={'true'} />
-        <View style={styles.main}>
-          <WebView
-            originWhitelist={['*']}
-            source={{html: '<h1>Hello world</h1>'}}
-          />
+        <View style={{height: 500}}>
+          <WebView originWhitelist={['*']} source={{html: item.product_desc}} />
         </View>
       </View>
     );
