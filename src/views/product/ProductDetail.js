@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import axios from 'axios';
 import Header from 'components/layout/Header';
+import {WebView} from 'react-native-webview';
 
 class ProductDetail extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       item: {},
+      defaultContent: '<div>aaa</div>',
     };
   }
   async componentDidMount() {
@@ -23,13 +25,19 @@ class ProductDetail extends Component {
   }
   render() {
     const {item} = this.state;
+    console.log(item);
     return (
       <View>
         <Header navigation={this.props.navigation} isDetail={'true'} />
-        <Text>{item.product_desc}</Text>
+        <View style={styles.main}>
+          <WebView
+            originWhitelist={['*']}
+            source={{html: '<h1>Hello world</h1>'}}
+          />
+        </View>
       </View>
     );
   }
 }
-
+const styles = StyleSheet.create({});
 export default ProductDetail;

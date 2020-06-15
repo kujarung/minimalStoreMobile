@@ -17,17 +17,16 @@ class Header extends React.Component {
       <SafeAreaView style={styles.header}>
         <View style={styles.headerInner}>
           {isDetail ? (
-            <View style={styles.backBtnCon}>
-              <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('Product', {})}>
-                <Image
-                  style={styles.backBtn}
-                  source={require('assets/img/arr.png')}
-                  resizeMode="cover"
-                />
-              </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.backBtnCon}
+              onPress={() => this.props.navigation.navigate('Product', {})}>
+              <Image
+                style={styles.backBtn}
+                source={require('assets/img/arr.png')}
+                resizeMode="cover"
+              />
               <Text style={styles.detalTxt}>상품상세</Text>
-            </View>
+            </TouchableOpacity>
           ) : (
             <Text
               style={styles.logoTxt}

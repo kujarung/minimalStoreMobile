@@ -20,8 +20,8 @@ const HeaderStyle = {
     paddingRight: 20,
   },
   backBtn: {
-    width: 20,
-    height: 20,
+    width: 12,
+    height: 16,
     marginRight: 4,
     zIndex: 10,
   },
