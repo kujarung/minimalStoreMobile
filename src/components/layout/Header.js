@@ -17,16 +17,16 @@ class Header extends React.Component {
       <SafeAreaView style={styles.header}>
         <View style={styles.headerInner}>
           {isDetail ? (
-            <View>
+            <View style={styles.backBtnCon}>
               <TouchableOpacity
                 onPress={() => this.props.navigation.navigate('Product', {})}>
-                <ImageBackground
+                <Image
                   style={styles.backBtn}
-                  source={require('assets/img/back-btn.svg')}
+                  source={require('assets/img/arr.png')}
                   resizeMode="cover"
                 />
-                <Text style={styles.detalTxt}>상품상세</Text>
               </TouchableOpacity>
+              <Text style={styles.detalTxt}>상품상세</Text>
             </View>
           ) : (
             <Text
@@ -35,13 +35,17 @@ class Header extends React.Component {
               MinialStore
             </Text>
           )}
-
-          <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
-            <Image
-              style={styles.menu}
-              source={require('assets/img/menu.png')}
-            />
-          </TouchableOpacity>
+          {isDetail ? (
+            <View />
+          ) : (
+            <TouchableOpacity
+              onPress={() => this.props.navigation.openDrawer()}>
+              <Image
+                style={styles.menu}
+                source={require('assets/img/menu.png')}
+              />
+            </TouchableOpacity>
+          )}
         </View>
       </SafeAreaView>
     );

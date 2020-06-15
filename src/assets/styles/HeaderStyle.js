@@ -1,6 +1,6 @@
 const HeaderStyle = {
   header: {
-    height: 80,
+    height: 120,
     backgroundColor: 'white',
   },
   menu: {
@@ -20,9 +20,10 @@ const HeaderStyle = {
     paddingRight: 20,
   },
   backBtn: {
-    width: 24,
-    height: 24,
-    marginRight: 8,
+    width: 20,
+    height: 20,
+    marginRight: 4,
+    zIndex: 10,
   },
   detalTxt: {
     fontSize: 16,
@@ -30,6 +31,11 @@ const HeaderStyle = {
   },
   detailHeaderCon: {
     flex: 1,
+  },
+  backBtnCon: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 };
 
