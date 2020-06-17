@@ -19,7 +19,7 @@ class Header extends React.Component {
           {isDetail ? (
             <TouchableOpacity
               style={styles.backBtnCon}
-              onPress={() => this.props.navigation.navigate('Product', {})}>
+              onPress={() => this.props.navigation.navigate('Product', {})} >
               <Image
                 style={styles.backBtn}
                 source={require('assets/img/arr.png')}

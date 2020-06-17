@@ -41,8 +41,8 @@ const MainStyle = {
     top: 80,
   },
   bodyInnerTxt: {
-    fontSize: 30,
-    marginBottom: 20,
+    fontSize: 25,
+    marginBottom: 15,
   },
   impaTxt: {
     width: 120,
@@ -63,6 +63,7 @@ const MainStyle = {
     flex: 1,
     bottom: 30,
     left: '50%',
+    width: 500,
   },
 };
 

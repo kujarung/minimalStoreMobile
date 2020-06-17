@@ -16,17 +16,19 @@ class ProductListItem extends Component {
     this.getDate = this.getDate.bind(this);
   }
   async getDate() {
+    console.log("getdata")
     let {currentPage, lastPage} = this.state;
     if (lastPage <= currentPage) {
       const {
         data: {data, count},
       } = await axios({
         method: 'get',
-        url: 'http://localhost:8080/api/product',
+        url: 'http://minimalstore.gabia.io/api/product',
         params: {
           currentPage,
         },
       });
+      console.log(data)
       this.setState({
         currentPage: ++currentPage,
         itemData: this.state.itemData.concat(data),

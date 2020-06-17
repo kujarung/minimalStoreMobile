@@ -1,5 +1,5 @@
 import React from 'react';
-import {ImageBackground, StyleSheet, View, Text, Image} from 'react-native';
+import {ImageBackground, StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import {MainStyle} from 'assets/styles/MainStyle';
 import {HeaderStyle} from 'assets/styles/HeaderStyle';
 import Header from 'components/layout/Header';
@@ -31,12 +31,15 @@ const Main = ({navigation}) => {
             둘째 날에 두개, 셋째날에 세개 {'\n'}
             <Text style={styles.fontBold}>미니멀리즘</Text>을 실천해보세요.
           </Text>
-          <View style={styles.bottomImgCon}>
-            <Image
-              style={styles.bottomImg}
-              source={require('assets/img/Group3.png')}
-            />
-          </View>
+          <TouchableOpacity onPress={() => navigation.navigate('Product', {})} style={styles.bottomImgCon}>
+            <View>
+              <Image
+                style={styles.bottomImg}
+                source={require('assets/img/Group3.png')}
+              />
+            </View>
+          </TouchableOpacity>
+
         </View>
       </View>
     </View>

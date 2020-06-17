@@ -92,6 +92,22 @@ const ProductStyle = {
     fontWeight: '600',
     color: 'white',
   },
+
+
+
+  detailCon : {
+    height: '100%',
+  },
+  titleCon : {
+    backgroundColor : 'white'
+  },
+  detailImg : {
+    width: '100%',
+    height : 50
+  },
+  attachImg : {
+    width: '100%',
+  }
 };
 
 export {ProductStyle};

@@ -1,5 +1,5 @@
 const utils = {
-  path: 'http://localhost:8080',
+  path: 'http://minimalstore.gabia.io',
 };
 
 export default utils;
