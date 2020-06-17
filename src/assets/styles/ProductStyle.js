@@ -92,21 +92,55 @@ const ProductStyle = {
     fontWeight: '600',
     color: 'white',
   },
-
-
-
-  detailCon : {
+  container: {
+    flex: 1,
+  },
+  tabContainer: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
+  detailCon: {
     height: '100%',
   },
-  titleCon : {
-    backgroundColor : 'white'
+  titleCon: {
+    backgroundColor: 'white',
   },
-  detailImg : {
+  detailImg: {
     width: '100%',
-    height : 50
+    height: 50,
   },
-  attachImg : {
+  attachImg: {
     width: '100%',
+  },
+  priceItemCon : {
+    width: "100%",
+    flex : 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    position: 'absolute',
+    backgroundColor: "#333333",
+    bottom: 0,
+    paddingTop: 7,
+    paddingBottom: 7,
+    paddingLeft: 15,
+    paddingRight: 15
+  },
+  priceTxt : {
+    color : 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  delTxt : {
+    color : 'white',
+    fontWeight: '600',
+    fontSize: 12,
+  },
+  titleTxtCon : {
+    flex : 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   }
 };
 
