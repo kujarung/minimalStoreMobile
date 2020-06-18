@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, TouchableOpacity, FlatList} from 'react-native';
+import {StyleSheet, TouchableOpacity, FlatList} from 'react-native';
 import {ProductStyle} from 'assets/styles/ProductStyle';
 import {CommonStyle} from 'assets/styles/CommonStyle';
 import ProductItem from './ProductItem';
@@ -13,12 +13,12 @@ class ProductListItem extends Component {
       currentPage: 1,
       lastPage: 1,
     };
-    this.getDate = this.getDate.bind(this);
+    this.getData = this.getData.bind(this);
   }
-  async getDate() {
-    console.log("getdata")
+  async getData() {
     let {currentPage, lastPage} = this.state;
-    if (lastPage <= currentPage) {
+    if (lastPage >= currentPage) {
+      this.props.loadingStart();
       const {
         data: {data, count},
       } = await axios({
@@ -28,46 +28,46 @@ class ProductListItem extends Component {
           currentPage,
         },
       });
-      console.log(data)
       this.setState({
         currentPage: ++currentPage,
         itemData: this.state.itemData.concat(data),
         lastPage: count,
       });
+      setTimeout(() => {
+        this.props.loadingEnd();
+      }, 500);
     }
   }
-  async componentDidMount() {
-    console.log('did mo');
-    await this.getDate();
+  componentDidMount() {
+    this.getData();
   }
   render() {
     const {itemData} = this.state;
     const {nowTabl} = this.props;
     return (
-      <View style={styles.itemCon}>
-        <FlatList
-          keyExtractor={(item, index) => item.product_code}
-          columnWrapperStyle={styles.listCon}
-          numColumns={nowTabl === 'All' ? 2 : 1}
-          data={itemData}
-          onEndReached={async () => {
-            console.log('end');
-          }}
-          onEndReachedThreshold={1}
-          renderItem={({item}) => (
-            <TouchableOpacity
-              style={{flex: 1}}
-              onPress={() =>
-                this.props.navigation.push('ProductDetail', {
-                  id: item.product_code,
-                  navigation: this.props.navigation,
-                })
-              }>
-              <ProductItem val={item} key={item.product_code} />
-            </TouchableOpacity>
-          )}
-        />
-      </View>
+      <FlatList
+        keyExtractor={(item, index) => item.product_code}
+        columnWrapperStyle={styles.listCon}
+        numColumns={nowTabl === 'All' ? 2 : 1}
+        data={itemData}
+        onEndReached={async () => {
+          await this.getData();
+          console.log('reach end');
+        }}
+        onEndReachedThreshold={0.3}
+        renderItem={({item}) => (
+          <TouchableOpacity
+            style={{flex: 1}}
+            onPress={() =>
+              this.props.navigation.push('ProductDetail', {
+                id: item.product_code,
+                navigation: this.props.navigation,
+              })
+            }>
+            <ProductItem val={item} key={item.product_code} />
+          </TouchableOpacity>
+        )}
+      />
     );
   }
 }
@@ -77,4 +77,4 @@ const styles = StyleSheet.create({
   ...CommonStyle,
 });
 
-export default ProductListItem;
+export default React.memo(ProductListItem);

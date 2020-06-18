@@ -3,19 +3,15 @@ import {StyleSheet, View, Text, ImageBackground, Image} from 'react-native';
 import {ProductStyle} from 'assets/styles/ProductStyle';
 import utils from 'utils';
 
-function // 3자리 콤마 (ex. 1000 => 1,000)
-numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
-
 class ProductItem extends React.Component {
   render() {
     const item = this.props.val;
     let showImgPath;
-    if (item.ATTACH_IMGs) {
+    if (item.ATTACH_IMGs.length > 0) {
       const imagePath = item.ATTACH_IMGs[0].file_path;
       showImgPath = utils.path + imagePath;
     } else {
+      showImgPath = utils.defualImgPath;
     }
     return (
       <View style={styles.item}>
@@ -62,7 +58,7 @@ class ProductItem extends React.Component {
             </Text>
           </View>
           <Text style={styles.itemPriceTxt}>
-            {numberWithCommas(item.product_price)} 원
+            {utils.numberWithCommas(item.product_price)} 원
           </Text>
         </View>
       </View>
