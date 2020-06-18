@@ -1,4 +1,3 @@
-# 실행
-# npm ios or npm android
-
-## 모든 css는 assets/styles에 정의한다.
+# 개발 환경
+## react-native, node-js, mysql, sequelize, mobx
+## 알람에 경우 firebase를 사용

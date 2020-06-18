@@ -18,7 +18,6 @@ class Product extends Component {
   constructor() {
     super();
     this.state = {
-      isLoading: false,
       itemData: [],
       index: 0,
       routes: [
@@ -27,20 +26,7 @@ class Product extends Component {
         {key: 'NEW', title: 'NEW'},
       ],
     };
-    this.loadingStart = this.loadingStart.bind(this);
   }
-  
-  loadingStart = () => {
-    console.log('loading start');
-    this.setState({
-      isLoading: true,
-    });
-  };
-  loadingEnd = () => {
-    this.setState({
-      isLoading: false,
-    });
-  };
 
   render() {
     const {index, routes} = this.state;
@@ -56,8 +42,6 @@ class Product extends Component {
             <ProductListItem
               navigation={this.props.navigation}
               nowTabl={'All'}
-              loadingStart={this.loadingStart}
-              loadingEnd={this.loadingEnd}
             />
           );
         case 'BEST':
@@ -86,7 +70,6 @@ class Product extends Component {
     };
     return (
       <View style={styles.container}>
-        {this.state.isLoading ? <Loading /> : <View />}
         <Header navigation={this.props.navigation} />
         <View style={styles.tabContainer}>
           <TabView

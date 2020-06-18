@@ -1,6 +1,6 @@
 const CommonStyle = {
   container: {
-    zIndex: 200,
+    zIndex: -100,
     position: 'absolute',
     flex: 1,
     justifyContent: 'center',

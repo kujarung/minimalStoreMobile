@@ -4,6 +4,7 @@ import {MainStyle} from 'assets/styles/MainStyle';
 import {HeaderStyle} from 'assets/styles/HeaderStyle';
 import Header from 'components/layout/Header';
 
+
 const Main = ({navigation}) => {
   return (
     <View style={styles.container}>
@@ -39,7 +40,6 @@ const Main = ({navigation}) => {
               />
             </View>
           </TouchableOpacity>
-
         </View>
       </View>
     </View>
