@@ -3,6 +3,7 @@ import {ImageBackground, StyleSheet, View, Text, Image, TouchableOpacity} from '
 import {MainStyle} from 'assets/styles/MainStyle';
 import Header from 'components/layout/Header';
 
+
 const Main = ({navigation}) => {
   return (
     <View style={styles.container}>
@@ -38,7 +39,6 @@ const Main = ({navigation}) => {
               />
             </View>
           </TouchableOpacity>
-
         </View>
       </View>
     </View>

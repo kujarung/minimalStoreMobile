@@ -4,7 +4,11 @@ import {ProductStyle} from 'assets/styles/ProductStyle';
 import {CommonStyle} from 'assets/styles/CommonStyle';
 import ProductItem from './ProductItem';
 import axios from 'axios';
+import { inject } from "mobx-react";
 
+@inject(stores => ({
+  ...stores
+}))
 class ProductListItem extends Component {
   constructor() {
     super();
@@ -18,7 +22,9 @@ class ProductListItem extends Component {
   async getData() {
     let {currentPage, lastPage} = this.state;
     if (lastPage >= currentPage) {
-      this.props.loadingStart();
+      console.log(  this.props )
+      const {  loadingStart, loadingEnd } = this.props.loadingMethod;
+      loadingStart()
       const {
         data: {data, count},
       } = await axios({
@@ -34,13 +40,14 @@ class ProductListItem extends Component {
         lastPage: count,
       });
       setTimeout(() => {
-        this.props.loadingEnd();
-      }, 500);
+        loadingEnd()
+      }, 1000);
     }
   }
   componentDidMount() {
     this.getData();
   }
+
   render() {
     const {itemData} = this.state;
     const {nowTabl} = this.props;

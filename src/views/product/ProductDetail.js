@@ -1,21 +1,16 @@
 import React, {Component} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Image,
-  Dimensions
-} from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import axios from 'axios';
 import Header from 'components/layout/Header';
 import {WebView} from 'react-native-webview';
 import {ProductStyle} from 'assets/styles/ProductStyle';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import utils from 'utils';
-import Loading from 'components/Loading';
+import { inject } from "mobx-react";
 
-
+@inject(stores => ({
+  ...stores
+}))
 class ProductDetail extends Component {
   constructor(props) {
     super(props);
@@ -26,21 +21,11 @@ class ProductDetail extends Component {
     };
   }
 
-  loadingStart = () => {
-    this.setState({
-      isLoading: true,
-    });
-  };
-  loadingEnd = () => {
-    this.setState({
-      isLoading: false,
-    });
-  };
-
   async componentDidMount() {
-    this.loadingStart()
+    const {  loadingStart, loadingEnd } = this.props.loadingMethod;
     const {id} = this.props.route.params;
-    const {data} = await axios({
+    loadingStart()
+    const { data } = await axios({
       method: 'get',
       url: `http://minimalstore.gabia.io/api/product/detail/${id}`,
     });
@@ -48,8 +33,8 @@ class ProductDetail extends Component {
       item: data[0],
     });
     setTimeout(() => {
-      this.loadingEnd();
-    }, 500);
+      loadingEnd()
+    }, 2000);
   }
 
   _renderItem({item, index}) {
