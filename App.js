@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import Main from 'views/main/Main';
 import ProductCon from 'views/product/ProductCon';
 import About from 'views/about/About';
+import Login from 'views/login/Login';
 import CustomDrawerContent from 'components/layout/CustomDrwaer';
 import AsyncStorage from '@react-native-community/async-storage';
 import firebase from 'react-native-firebase';
@@ -107,6 +108,7 @@ export class App extends React.Component {
           <Drawer.Screen name="Main" component={Main} />
           <Drawer.Screen name="Product" component={ProductCon} />
           <Drawer.Screen name="About" component={About} />
+          <Drawer.Screen name="Login" component={Login} />
         </Drawer.Navigator>
       </NavigationContainer>
     );

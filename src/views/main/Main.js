@@ -1,7 +1,6 @@
 import React from 'react';
 import {ImageBackground, StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import {MainStyle} from 'assets/styles/MainStyle';
-import {HeaderStyle} from 'assets/styles/HeaderStyle';
 import Header from 'components/layout/Header';
 
 const Main = ({navigation}) => {
@@ -48,7 +47,6 @@ const Main = ({navigation}) => {
 
 const styles = StyleSheet.create({
   ...MainStyle,
-  ...HeaderStyle,
 });
 
 export default Main;
