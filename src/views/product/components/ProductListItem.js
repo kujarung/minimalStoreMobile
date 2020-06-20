@@ -22,7 +22,6 @@ class ProductListItem extends Component {
   async getData() {
     let {currentPage, lastPage} = this.state;
     if (lastPage >= currentPage) {
-      console.log(  this.props )
       const {  loadingStart, loadingEnd } = this.props.loadingMethod;
       loadingStart()
       const {
@@ -59,7 +58,6 @@ class ProductListItem extends Component {
         data={itemData}
         onEndReached={async () => {
           await this.getData();
-          console.log('reach end');
         }}
         onEndReachedThreshold={0.3}
         renderItem={({item}) => (
