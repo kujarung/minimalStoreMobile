@@ -17,7 +17,7 @@ class About extends React.Component {
         <Header navigation={this.props.navigation} />
         <ScrollView style={styles.aboutCon}>
           <View>
-            <Text style={styles.aboutTxt}>About!</Text>
+            <Text style={styles.aboutTxt}>About</Text>
           </View>
           <View style={[styles.imageCon, styles.first]}>
             <View style={styles.leftImg}>

@@ -1,17 +1,16 @@
-import store from '@/store'
 import redirect from './redirect'
 import { handleClientError, handleServerError } from './error-handler'
+import { inject } from "mobx-react";
 
 export const loading = {
   name: 'loading',
   intercept: context => {
+    const {  loadingStart, loadingEnd } = this.props.loadingMethod;
     switch (context.type) {
       case 'request':
-        store.dispatch('addLoading')
         break
       case 'response':
       case 'reject':
-        store.dispatch('removeLoading')
         break
       default:
         throw new Error(`unsupported context type: ${context.type}`)
@@ -49,7 +48,7 @@ export const errorCodeHandler = {
     if (error.code) {
       switch (error.code) {
         case 'ECONNABORTED':
-          store.commit('showToastError', `Timeout (limit: ${error.config.timeout} ms)`)
+          console.log("Timeout");
           break
         default:
           throw new Error(`unsupported error code: ${error.code}`)
@@ -65,7 +64,7 @@ export const errorMessageHandler = {
   intercept: context => {
     const error = context.getError()
     if (error.message) {
-      store.commit('showToastError', error.message)
+      console.log("error : " + error.message)
       redirect('/5xx')
       context.suspend = true
       return error.message

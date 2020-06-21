@@ -4,7 +4,7 @@ import {ProductStyle} from 'assets/styles/ProductStyle';
 import Header from 'components/layout/Header';
 import {TabView, TabBar} from 'react-native-tab-view';
 import ProductListItem from './ProductListItem';
-import Loading from 'components/Loading';
+import Loading from 'store/Loading';
 
 const renderTabBar = (props) => (
   <TabBar
@@ -50,8 +50,6 @@ class Product extends Component {
             <ProductListItem
               navigation={this.props.navigation}
               nowTabl={'Best'}
-              loadingStart={this.loadingStart}
-              loadingEnd={this.loadingEnd}
             />
           );
         case 'NEW':
@@ -60,8 +58,6 @@ class Product extends Component {
             <ProductListItem
               navigation={this.props.navigation}
               nowTabl={'New'}
-              loadingStart={this.loadingStart}
-              loadingEnd={this.loadingEnd}
             />
           );
         default:
@@ -78,7 +74,6 @@ class Product extends Component {
             navigationState={{index, routes}}
             onIndexChange={_handleIndexChange}
             renderScene={renderScene}
-            renderLazyPlaceholder={Loading}
           />
         </View>
       </View>

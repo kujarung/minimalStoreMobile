@@ -1,11 +1,11 @@
-const env = process.env.NODE_ENV
+const env = "development"
 
 function interceptLog(context) {
   console.log(context.type, context.getUrl(), 'attributes', context.attributes, 'history', context.history)
 }
 
 const baseURLs = {
-  debug: 'http://http://minimalstore.gabia.io/api',
+  development: 'http://http://minimalstore.gabia.io/api',
 }
 
 const logInterceptors = {
