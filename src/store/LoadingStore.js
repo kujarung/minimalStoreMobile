@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx';
 
-export default class LoadingStore {
+export default LoadingStore = () => {
   @observable isLoading = false;
 
   @action loadingStart = () => {

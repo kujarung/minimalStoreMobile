@@ -73,6 +73,7 @@ class ProductDetail extends Component {
   }
   render() {
     const {item} = this.state;
+    const INJECTEDJAVASCRIPT = 'const meta = document.createElement(\'meta\'); meta.setAttribute(\'content\', \'width=device-width, initial-scale=1, maximum-scale=0.99, user-scalable=0\'); meta.setAttribute(\'name\', \'viewport\'); document.getElementsByTagName(\'head\')[0].appendChild(meta); '
     return (
       <View>
         {this.state.isLoading ? <Loading/> : <View></View>}
@@ -122,6 +123,8 @@ class ProductDetail extends Component {
             <WebView
               originWhitelist={['*']}
               source={{html: item.product_desc}}
+              injectedJavaScript={INJECTEDJAVASCRIPT}
+              scrollEnabled
             />
           </View>
           <View />
