@@ -1,6 +1,7 @@
+import React from 'react';
 import { observable, action } from 'mobx';
 
-export default LoadingStore = () => {
+export default class LoadingStore extends React.Component {
   @observable isLoading = false;
 
   @action loadingStart = () => {

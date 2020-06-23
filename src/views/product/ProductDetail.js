@@ -122,7 +122,7 @@ class ProductDetail extends Component {
             </View>
             <WebView
               originWhitelist={['*']}
-              source={{html: item.product_desc}}
+              source={{html: "<style>body { font-size: 200%; word-wrap: break-word; overflow-wrap: break-word; }</style>"+item.product_desc}}
               injectedJavaScript={INJECTEDJAVASCRIPT}
               scrollEnabled
             />

@@ -7,6 +7,7 @@ import { Provider, inject } from 'mobx-react'; // MobX 에서 사용하는 Provi
 import {notification} from 'utils/firebaseNotification';
 import Navigation from 'store/Navigation'
 import NavigationStore from 'store/NavigationStore'
+import 'mobx-react-lite/batchingForReactNative'
 
 const loadingMethod = new LoadingStore();
 const navigationMethod = new NavigationStore();
