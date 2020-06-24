@@ -7,6 +7,7 @@ import About from 'views/about/About';
 import Login from 'views/login/Login';
 import CustomDrawerContent from 'components/layout/CustomDrwaer';
 import { observer, inject } from 'mobx-react';
+import Loading from 'store/Loading';
 
 const Drawer = createDrawerNavigator();
 
@@ -15,16 +16,17 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <NavigationContainer>
-      <Drawer.Navigator
-        initialRouteName="Main"
-        drawerPosition="right"
-        drawerContent={(props) => <CustomDrawerContent {...props} />}>
-        <Drawer.Screen name="Main" component={Main} />
-        <Drawer.Screen name="Product" component={ProductCon} />
-        <Drawer.Screen name="About" component={About} />
-        <Drawer.Screen name="Login" component={Login} />
-      </Drawer.Navigator>
-    </NavigationContainer>
+        <Loading />
+        <Drawer.Navigator
+          initialRouteName="Main"
+          drawerPosition="right"
+          drawerContent={(props) => <CustomDrawerContent {...props} />}>
+          <Drawer.Screen name="Main" component={Main} />
+          <Drawer.Screen name="Product" component={ProductCon} />
+          <Drawer.Screen name="About" component={About} />
+          <Drawer.Screen name="Login" component={Login} />
+        </Drawer.Navigator>
+      </NavigationContainer>
     )
   }
 }

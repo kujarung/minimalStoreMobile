@@ -9,8 +9,13 @@ class Loading extends React.Component {
   render() {
     const { isLoading } = this.props.loadingMethod;
     return (
-      <View style={[styles.container, styles.horizontal, isLoading ? styles.indicate : '']}>
-        <ActivityIndicator style={styles.indicate} size="large" color="#E39696" />
+      <View>
+        {isLoading ? 
+          <View style={[styles.container, styles.horizontal]}>
+            <ActivityIndicator style={styles.indicater} size="large" color="#E39696" />
+          </View>
+        : <View></View>        
+        }
       </View>
     );
   }

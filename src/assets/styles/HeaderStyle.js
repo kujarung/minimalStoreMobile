@@ -1,6 +1,6 @@
 const HeaderStyle = {
   header: {
-    height: 100,
+    height: 70,
     backgroundColor: 'white',
   },
   menu: {

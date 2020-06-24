@@ -24,7 +24,6 @@ export class App extends React.Component {
   render() {
     return (
       <Provider loadingMethod={loadingMethod} navigationMethod={navigationMethod}>
-        <Loading />
         <Navigation />
       </Provider>
     );
