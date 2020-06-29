@@ -2,6 +2,7 @@ import React from 'react';
 import {CommonStyle} from 'assets/styles/CommonStyle';
 import {StyleSheet, View, ActivityIndicator} from 'react-native';
 import { observer, inject } from 'mobx-react';
+import 'mobx-react-lite/batchingForReactNative'
 
 @inject(stores => ({...stores}))
 @observer

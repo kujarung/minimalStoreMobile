@@ -6,7 +6,10 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 import {DrawerStyle} from 'assets/styles/DrawerStyle';
+import { observer, inject } from 'mobx-react';
+import 'mobx-react-lite/batchingForReactNative'
 
+@observer
 export default class CustomDrwaer extends Component {
   render() {
     return (
