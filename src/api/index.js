@@ -1,16 +1,30 @@
-import axios from 'axios'
-import { baseURL } from './api-environment'
-import paramsSerializer from './params-serializer'
-import interceptors from './interceptors'
+import axios from "axios";
+const DOMAIN = "http://localhost:8080/api";
 
-const minimalApi = axios.create({
-  baseURL,
-  timeout: 60000,
-  withCredentials: true,
-  paramsSerializer,
-  maxRedirects: 0,
-})
+const api = async (method, url, data, header) => {
+  if(method === "get") {
+    try {
+      const res = await axios({
+        method,
+        url: DOMAIN + url,
+        params : data
+      });
+      return res;
+    } catch(error) {
+    }
+  } else {
+    try {
+      console.log(DOMAIN + url)
+      axios.defaults.headers.common['Authorization'] = header
+      const res = await axios({
+        method,
+        url: DOMAIN + url,
+        data,
+      });
+      return res;
+    } catch(error) {
+    }
+  }
+};
 
-
-export default minimalApi
-window.minimalApi = minimalApi
+export default api;
