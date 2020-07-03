@@ -1,7 +1,8 @@
 import React from 'react';
 import Header from 'components/layout/Header';
-import {Text, StyleSheet, View, TextInput, Button } from 'react-native';
+import {Text, StyleSheet, View, TextInput, Button, Alert } from 'react-native';
 import { observer, inject } from 'mobx-react';
+import api from 'api';
 
 @inject(stores => ({...stores}))
 export default class Login extends React.Component {
@@ -25,8 +26,16 @@ export default class Login extends React.Component {
     })
   }
 
-  login(id, pas) {
-    
+  async login(id, password) {
+    const form = {
+      id ,password 
+    }
+    const { data } = await api('post','/login', form);
+    if(data.success) {
+      console.log("!!!")
+    } else {
+      Alert.alert("확인","아이디와 비밀번호를 확인해 주세요.")
+    }
   }
 
   render() {
