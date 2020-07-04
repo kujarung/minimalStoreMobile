@@ -5,15 +5,16 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 export default class Login extends React.Component {
   @observable isLogin = false;
-  @observable userInfo = {
-    
-  }
 
-  @action checkIdAndPass = async (id, password) => {
+  @action 
+  loginComplete = () => {
     this.isLogin = true;
+    AsyncStorage.setItem("isLogin", "true")
   };
   
-  @action loadingEnd = () => {
-    this.isLoading = false;
+  @action 
+  logout = () => {
+    this.isLogin = false;
+    AsyncStorage.removeItem("isLogin")
   };
 }

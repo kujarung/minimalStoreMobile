@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image, StyleSheet, View, Text} from 'react-native';
+import {Image, StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import {
   DrawerContentScrollView,
   DrawerItemList,
@@ -20,12 +20,15 @@ export default class CustomDrwaer extends Component {
         <DrawerItem
           label={({}) => (
             <View>
-            {isLogin === "true" ?
+            {isLogin ?
               <View style={styles.draweImgCon}>
-                <Image
-                  style={styles.drawerLogo}
-                  source={require('assets/img/temp-menu.jpg')}
-                />
+                <TouchableOpacity onPress={() => console.log("!!!!")}>
+                  <Image
+                    style={styles.drawerLogo}
+                    source={require('assets/img/temp-menu.jpg')}
+                  />
+                </TouchableOpacity>
+
                 <View>
                   <Text style={styles.nameTxt}>김아무개</Text>
                   <Text>
@@ -34,7 +37,7 @@ export default class CustomDrwaer extends Component {
                   </Text>
                 </View>
               </View>
-              : <View><Text>{isLogin}</Text></View>}
+              : <View></View>}
             </View>
           )}
           onPress={() => this.props.navigation.navigate('Main')}

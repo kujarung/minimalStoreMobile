@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from 'components/layout/Header';
 import {Text, StyleSheet, View, TextInput, Button, Alert } from 'react-native';
-import { observer, inject } from 'mobx-react';
+import { inject } from 'mobx-react';
 import api from 'api';
 
 @inject(stores => ({...stores}))
@@ -27,14 +27,33 @@ export default class Login extends React.Component {
   }
 
   async login(id, password) {
-    const form = {
-      id ,password 
-    }
-    const { data } = await api('post','/login', form);
-    if(data.success) {
-      console.log("!!!")
+    if(id === "" || password === "") {
+      Alert.alert(
+        "입력 에러",
+        "아이디와 비밀번호를 입력해주세요.",
+        [
+          { text: "OK", onPress: () => console.log("OK Pressed") }
+        ],
+        { cancelable: false }
+      );
     } else {
-      Alert.alert("확인","아이디와 비밀번호를 확인해 주세요.")
+      const form = {
+        id ,password 
+      }
+      const { data } = await api('post','/login', form);
+      if(data.success) {
+        this.props.loginMethod.loginComplete()
+        this.props.navigation.navigate('Main')
+      } else {
+        Alert.alert(
+          "로그인 실패",
+          "아이디 혹은 비밀번호를 확인해 주세요.",
+          [
+            { text: "OK", onPress: () => console.log("OK Pressed") }
+          ],
+          { cancelable: false }
+        );
+      }      
     }
   }
 

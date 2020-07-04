@@ -21,6 +21,7 @@ const api = async (method, url, data, header) => {
         url: DOMAIN + url,
         data,
       });
+      console.log(res)
       return res;
     } catch(error) {
     }
